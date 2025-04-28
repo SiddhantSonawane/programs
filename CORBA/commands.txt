@@ -1,0 +1,18 @@
+tnameserv -ORBInitialPort 1050
+
+java -version
+sudo apt update
+sudo apt install openjdk-8-jdk
+sudo update-alternatives --config java
+sudo update-alternatives --config javac
+
+Server:
+
+idlj -fall StringOperation.idl
+javac *.java StringModule/*.java
+orbd -ORBInitialPort 1056&
+java StringServer -ORBInitialPort 1056&
+
+Client:
+
+java StringClient -ORBInitialPort 1056 -ORBInitialHost localhost
