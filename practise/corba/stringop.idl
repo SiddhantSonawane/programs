@@ -1,0 +1,5 @@
+module stringmodule{
+    interface StringOperation{
+        string revStr(in string input);
+    };
+};
